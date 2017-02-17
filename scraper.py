@@ -58,7 +58,9 @@ for person_id, memberships in person_id_to_memberships.items():
             'organization_category': o and o ['category'],
             'organization_classification': o and o['classification'],
         }
+        print('Saving:', row['person_name'].encode('utf-8'), row['membership_id'])
         scraperwiki.sqlite.save(
             unique_keys=['person_id', 'membership_id'],
             data=row
         )
+print("Completed.")
